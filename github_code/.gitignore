@@ -1,0 +1,45 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.vscode
+
+node_modules
+
+pdf/zh-cn/*.md
+
+website/db.json
+website/public/*
+website/src/modern-cpp/zh-cn/*
+website/src/modern-cpp/en-us/*
+website/src/modern-cpp/exercises
+website/src/modern-cpp/code
+website/src/modern-cpp/assets/cover-2nd-en.png
+website/src/modern-cpp/assets/cover-2nd.png
+website/src/modern-cpp/assets/figures/*

@@ -1,0 +1,68 @@
+<% var isIndex = page.path === 'index.html' %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%- page.title ? page.title : '' %> 现代 C++ 教程: 高速上手 C++ 11/14/17/20 - Modern C++ Tutorial: C++ 11/14/17/20 On the Fly</title>
+    <meta charset="utf-8">
+    <meta name="description" content="<%- theme.site_description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/modern-cpp/assets/cover-2nd.png">
+    <meta name="msapplication-TileColor" content="#7e2d36">
+    <meta name="theme-color" content="#7e2d36">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80889616-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-80889616-2');
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <%- css(isIndex ? 'modern-cpp/css/index' : 'modern-cpp/css/page') %>
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>window.PAGE_TYPE = "<%- page.type %>"</script>
+
+  </head>
+  <body class="<%- isIndex ? '' : 'docs' -%>">
+    <% if (page.type == 'book-en-us') { %>
+      <div id="mobile-bar" data-bg-text="Modern C++ Tutorial" <%- isIndex ? 'class="top"' : '' %>>
+        <a class="menu-button"></a>
+        <a class="logo" href="/modern-cpp/"></a>
+      </div>
+    <% } else {%>
+      <div id="mobile-bar" data-bg-text="现代 C++ 教程" <%- isIndex ? 'class="top"' : '' %>>
+        <a class="menu-button"></a>
+        <a class="logo" href="/modern-cpp/"></a>
+      </div>
+    <% } %>
+    <%- partial('partials/header') %>
+    <% if (!isIndex) { %>
+      <div id="main" class="fix-sidebar">
+        <%- body %>
+      </div>
+    <% } else { %>
+        <%- body %>
+    <% } %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.1/js/smooth-scroll.min.js"></script>
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="https://cdn.jsdelivr.net/npm/css.escape@1.5.1/css.escape.min.js"></script>
+    <script src="<%- url_for("/modern-cpp/js/common.js") %>"></script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>
